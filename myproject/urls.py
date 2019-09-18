@@ -47,11 +47,9 @@ urlpatterns = [
     path('regiter/save',loginitem.db_save),#输入用户名密码后交给后台save函数处理
     path('login/query',loginitem.db_query),#输入用户名密码后交给后台query函数处理
     path('workpage/',workpage),#输入用户名密码后交给后台query函数处理
-    path('workpage/runqemu',workhomeitem.runqemu),#输入用户名密码后交给后台query函数处理
- #   path('workpage/notebook',notebookitem.get_notebook_page),#输入用户名密码后交给后台query函数处理
- #   path('workpage/notebook/detail',notebookitem.get_detail_page),#
-   # url(r'^hello/$', cosimstruct.helloword),
+   # path('workpage/runqemu',workhomeitem.runqemu),#输入用户名密码后交给后台query函数处理
 
+    path('workpage/',include('cosimapp.urls')),#
     path('notebook/',include('cosimapp.urls')),#
     path('hello/',cosimstruct.helloword)#
 ]

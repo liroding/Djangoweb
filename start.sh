@@ -1,3 +1,3 @@
 #!/bin/bash
-python3 /home/pi/work/djangoproject/myproject/manage.py runserver 0.0.0.0:8000
+python3 /home/liroding/workspace/git/RemoteGit/Djangoweb/manage.py runserver 0.0.0.0:8000
 echo "启动成功"
