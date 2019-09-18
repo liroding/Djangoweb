@@ -1,0 +1,19 @@
+#!/bin/sh
+arg1=$1
+arg2=$2
+echo "--------------start git ${arg1}-----------------"
+if [ "$arg1" = "clone" ]; then
+     git clone https://github.com/liroding/$arg2.git
+#    echo www.arg2.git
+fi
+
+if [ "$arg1" = "push" ]; then
+    git add .
+    git status
+    git commit -s -m $arg2
+    git push
+fi
+
+
+
+

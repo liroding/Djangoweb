@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/static/bootstrap/css/bootstrap.min.css"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container page-header">
+    <h1>个人记事本
+	<small>作者:{{article.author}}  创建日期:{{article.publish_date}}</small>
+    </h1>
+   
+</div>
+  <form class="form-horizontal" action="notebookaddquery" method="post">
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">主题</label>
+    <div class="col-sm-5">
+      <input name="title" type="text" class="form-control" placeholder="Text input">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">内容</label>
+    <div class="col-sm-5">
+      <textarea name="content" class="form-control" rows="3"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-5">
+      <button  type="submit" class="btn btn-default">Sign in</button>
+    </div>
+  </div>
+
+
+</form>
+
+</body>
+</html>
