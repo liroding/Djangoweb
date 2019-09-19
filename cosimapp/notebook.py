@@ -2,6 +2,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 import time
+from cosimapp.globalvar.GlobalVar import GlobalVarBuf
 
 class notebookitem():
     def get_notebook_list(request):
@@ -14,12 +15,16 @@ class notebookitem():
         return HttpResponse(ret_str)
 
     def get_notebook_page(request):
-        notebooks = notebookdb.objects.all()
-        return render(request,'mainpage.html',
-                {
-                    'articles':notebooks
-                }
-                )
+        username = GlobalVarBuf.get_value('username')
+        if username:
+            notebooks = notebookdb.objects.all()
+            return render(request,'mainpage.html',
+                    {
+                        'articles':notebooks
+                    }
+                    )
+        else:
+            return HttpResponse("please login in") 
     def get_detail_page(request):
                       
         articles = notebookdb.objects.all()

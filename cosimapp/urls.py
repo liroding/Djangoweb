@@ -13,5 +13,7 @@ urlpatterns =[
 
 
       path('gitselect',workhomeitem.gititemselect),
+      path('inputmessage',workhomeitem.inputmessage),
+      path('addmesgquery',workhomeitem.addmesgquery),
 ]
  

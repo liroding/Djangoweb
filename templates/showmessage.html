@@ -1,0 +1,31 @@
+﻿{% extends 'template.html' %}
+
+{% block index_head %}
+    <h1>Message
+	<small> Show</small>
+    </h1>
+{% endblock %}
+
+{%block index_content %}
+
+<table class="table" style = "table-layout:fixed">
+<thead class="col-sm-15">
+    <tr>
+        <th>index1</th>
+        <th>index2</th>
+        <th>index3</th>
+        <th>index4</th>
+        <th>index5</th>
+    </tr>
+</thead>
+<tbody>
+{%for key,value in mesg_dict.items%}
+    <tr>
+    {%for i,j in value.items%}    
+            <td style="word-wrap:break-word">{{j}}</td>
+    {%endfor%}
+    </tr>
+{%endfor%}
+</tbody>
+</table>
+{% endblock %}
