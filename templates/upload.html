@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" cfontent="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/bootstrap/css/homepage.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+       <script src="/static/bootstrap/js/jquery.min.js"></script>
+       <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+<script>
+    $('input[id=myfile]').change(function () {
+        var myfiles = document.getElementById("myfile").files;
+        var file_index = 0;
+        var file_len = myfiles.length;
+        var myfilename = null;
+        while (file_index < file_len) {
+            myfilename = myfilename + myfiles[file_index].name + ";";
+            file_index = file_index + 1;
+        }
+        //console.log(myfiles);
+        //$('#FileCover').val($(this).val());
+        $('#FileCover').val(myfilename);
+        //拼接上传的文件名字并返回到FileCover
+    })
+</script>
+
+
+
+
+
+  </head>
+
+  <body>
+
+
+
+
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">附件:</label>
+    <div class="col-sm-7">
+        <input id="myfile" type="file" style="display: none" multiple>
+        <!--显示上传的文件名字-->
+        <input type="text" id="FileCover" class="form-control" readonly="true">
+    </div>
+    <div class="col-sm-1">
+        <button class="btn btn-primary btn-sm " type="button" onclick="$('input[id=myfile]').click();">
+            <i class="fa fa-folder-open" id="browse">&nbsp;&nbsp;浏览</i>
+        </button>
+    </div>
+    <div class="col-sm-1">
+        <button class="btn btn-primary btn-sm " type="button" onclick="MyUpload()">
+            <i class="fa fa-send" id="upload_status">&nbsp;&nbsp;上传</i>
+        </button>
+    </div>
+</div>
+  </body>
+</html>

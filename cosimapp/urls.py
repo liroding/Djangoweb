@@ -15,5 +15,7 @@ urlpatterns =[
       path('gitselect',workhomeitem.gititemselect),
       path('inputmessage',workhomeitem.inputmessage),
       path('addmesgquery',workhomeitem.addmesgquery),
+      path('showmessage',workhomeitem.showmessage),
+      path('upload',workhomeitem.upload),
 ]
  

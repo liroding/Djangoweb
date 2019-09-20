@@ -57,5 +57,18 @@ class workhomeitem():
                         'index5':all_recordmesg[i].index5}
             print(_dict[i])
             i=i+1
-        print(type(_dict))
         return render(request,'showmessage.html',{'mesg_dict':_dict})
+    def showmessage(request):
+        all_recordmesg = recordmesgdb.objects.all()
+        i = 0
+        _dict = {} 
+        while i<len(all_recordmesg):
+            _dict[i] = {'index1':all_recordmesg[i].index1,'index2':all_recordmesg[i].index2,
+                        'index3':all_recordmesg[i].index3,'index4':all_recordmesg[i].index4,
+                        'index5':all_recordmesg[i].index5}
+            print(_dict[i])
+            i=i+1
+        return render(request,'showmessage.html',{'mesg_dict':_dict})
+    def upload(request):
+        
+        return render(request,'upload.html')

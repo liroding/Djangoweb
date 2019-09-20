@@ -17,6 +17,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+
 <div class="container page-header">
     
     <h1>user:{{username}}工作记录
@@ -34,6 +35,7 @@
                 </h2>
                 <p>{{article.content}}</p>
             </div>
+
             {% endfor %}
         </div>
     </div>
@@ -41,10 +43,11 @@
         <div>
             <h2>推荐文章</h2>
             {% for article in articles %}
-            <h4><a href="/notebook/detail/{{article.article_id}}">{{article.title}}</a></h4>
+            <h4><a href="/notebook/detail?id={{article.article_id}}">{{article.title}}</a></h4>
             {% endfor %}
         </div>
     </div>
 </div>
+
 </body>
 </html>

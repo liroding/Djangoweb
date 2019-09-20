@@ -79,9 +79,9 @@ class loginitem():
             #GlobalVarBuf.__init__()
             GlobalVarBuf.set_value('username',user)
             name = GlobalVarBuf.get_value('username')
-            print('1')
-            print(name)
-            print('2')
+            #print('1')
+            #print(name)
+            #print('2')
             return render(request,'workpage.html',context)
         else :
             return HttpResponse("登陆失败")           
