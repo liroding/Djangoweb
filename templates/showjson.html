@@ -1,0 +1,100 @@
+<html>
+<body>
+<head>
+    <title>SHOW DATA</title>
+    <meta charset="utf-8">
+    <script type="text/javascript"  src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+    <style type="text/css"> 
+    #divframe{ border:1px solid #999; width:100%; margin:0 auto;} 
+    .loadTitle{ background:#CCC; height:30px; text-align:center} 
+
+        table
+        {
+            padding: 0;
+            margin: 0;
+            border-collapse: collapse;
+        }
+        
+        td
+        {
+            border: 1px solid #009999;
+            padding: 6px 6px 6px 12px;
+            color: #4f6b72;
+            text-align: center;
+        }
+        
+        td button
+        {
+            font-size: 12px;
+        }
+
+    </style> 
+
+<script script type="text/javascript">
+function show()
+{
+    var html ='<table border =1 >';
+    var reader = new FileReader();
+    
+    reader.onload = function() 
+    {
+        
+     //   alert(this.result)
+     //   alert("nihao")
+        
+        jsondata = JSON.parse(this.result) 
+    //    alert(jsondata )
+     
+
+      html += '<tr>'
+      html += '<td>' + 'Item' + '</td>' ;
+      html += '<td>' + 'Cmd' + '</td>' ;
+      html += '<td>' + 'Offset' + '</td>' ;
+      html += '<td>' + 'Data' + '</td>' ;
+      html += '<td>' + 'Size' + '</td>' ;
+      html += '<tr>'
+
+  
+
+      for (var j in jsondata){
+	var obj = jsondata[j];
+
+        html += '<tr>'
+        html += '<td>' + obj.item + '</td>' ;
+	html += '<td>' + obj.cmd + '</td>' ;
+	html += '<td>' + obj.offset + '</td>' ;
+	html += '<td>' + obj.data + '</td>' ;
+	html += '<td>' + obj.size + '</td>' ;
+        html += '<tr>'
+
+            
+      }
+
+      html += '</table>' ;
+      $('#jsonTip').append(html);
+    //   alert(obj.offset)
+            
+
+    }
+    var f = document.getElementById("filePicker").files[0];
+    reader.readAsText(f);
+    console.log(reader);
+  //  console.log(JSON.stringify(reader.readAsText(f)));
+}
+</script>
+
+</head>
+<div id="divframe"> 
+<input type="file" name="file" id="filePicker"/>
+<div id = "div1">
+</div>
+
+<input type="button" value = "Show Data"  onclick="show()"/>
+
+
+<div id="jsonTip"> 
+</div> 
+</div> 
+</div>
+</body>
+</html>

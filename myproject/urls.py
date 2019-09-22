@@ -23,7 +23,7 @@ from cosimapp.cosimstruct import cosimstruct
 from cosimapp.admin import loginitem
 from cosimapp.workhome import workhomeitem
 from cosimapp.notebook import notebookitem
-
+from django.views.generic import TemplateView
 #登录页面
 def login(request):
     #指定要访问的页面，render的功能：讲请求的页面结果提交给客户端
@@ -51,5 +51,6 @@ urlpatterns = [
 
     path('workpage/',include('cosimapp.urls')),#
     path('notebook/',include('cosimapp.urls')),#
-    path('hello/',cosimstruct.helloword)#
+    path('hello/',cosimstruct.helloword),#
+    path('test/',TemplateView.as_view(template_name='test.txt'))#
 ]

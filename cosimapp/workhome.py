@@ -11,6 +11,8 @@ from django.template.context import RequestContext
 # Register your models here.
 
 
+HomePath = os.path.expanduser('~')
+
 class workhomeitem():
   #  list_display = ('dram','hif')  #页面显示
     def runqemu(request):
@@ -72,3 +74,11 @@ class workhomeitem():
     def upload(request):
         
         return render(request,'upload.html')
+
+    def showjsondata(request):
+        return render(request,'showjson.html')
+    def showloginfo(request):
+        fd = open('/home/liroding/workspace/app/app.log','r')
+        context = fd.read()
+        fd.close()
+        return render(request,'showloginfo.html',{'context':context})

@@ -17,5 +17,7 @@ urlpatterns =[
       path('addmesgquery',workhomeitem.addmesgquery),
       path('showmessage',workhomeitem.showmessage),
       path('upload',workhomeitem.upload),
+      path('showjsondata',workhomeitem.showjsondata),
+      path('showloginfo',workhomeitem.showloginfo),
 ]
  
