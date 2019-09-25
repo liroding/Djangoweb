@@ -12,7 +12,7 @@ if [ "$arg1" = "push" ]; then
     
     git add .
     git status
-    git commit -s -m  $arg3
+    git commit -s -m  "111"
  #   git push
 
 
