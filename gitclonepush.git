@@ -1,6 +1,7 @@
 #!/bin/sh
 arg1=$1
 arg2=$2
+arg3=\"$arg2\" 
 echo "--------------start git ${arg1}-----------------"
 if [ "$arg1" = "clone" ]; then
      git clone https://github.com/liroding/$arg2.git
@@ -11,9 +12,11 @@ if [ "$arg1" = "push" ]; then
     
     git add .
     git status
-    git commit -s -m  \"$arg2\"
-    git push
+    git commit -s -m  $arg3
+ #   git push
 
+
+    echo $arg3
 fi
 
 
