@@ -11,6 +11,7 @@ if [ "$arg1" = "push" ]; then
     git add .
     git status
     git commit -s -m \"$arg2\"
+    echo \"$arg2\"
     git push
 fi
 
