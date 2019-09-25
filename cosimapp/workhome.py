@@ -91,5 +91,6 @@ class workhomeitem():
         prjname = request.POST['sel_value']
         commit  = request.POST['commit']
         gitpushcmd = prjname + "gitclonepush.git" +" %s"+" %s"
-        os.system(gitpushcmd % ("push","\""+commit+"\"") )
+      #  os.system(gitpushcmd % ("push","\""+commit+"\"") )
+        os.system(gitpushcmd % ("push",commit))
         return HttpResponse("Git Push Finish")
