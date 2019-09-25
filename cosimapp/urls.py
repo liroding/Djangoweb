@@ -19,5 +19,7 @@ urlpatterns =[
       path('upload',workhomeitem.upload),
       path('showjsondata',workhomeitem.showjsondata),
       path('showloginfo',workhomeitem.showloginfo),
+      path('showloginfobuild',workhomeitem.showloginfo_build),
+      path('githandle',workhomeitem.githandle),
 ]
  

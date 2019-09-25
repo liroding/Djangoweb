@@ -82,3 +82,17 @@ class workhomeitem():
         context = fd.read()
         fd.close()
         return render(request,'showloginfo.html',{'context':context})
+    def showloginfo_build(request):
+        fd = open('/home/liroding/workspace/app/edk2makelog.log','r')
+        context = fd.read()
+        fd.close()
+        return render(request,'showloginfo.html',{'context':context})
+    def githandle(request):
+        prjname = request.POST['sel_value']
+        commit  = request.POST['commit']
+        gitpushcmd = prjname + "gitclonepush.git" +" %s"+" %s"
+        os.system(gitpushcmd % ("push",commit) )
+        print(prjname)
+        print(commit)
+        print(gitpushcmd)
+        return HttpResponse("Git Push Finish")
