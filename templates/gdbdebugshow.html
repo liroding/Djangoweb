@@ -1,0 +1,97 @@
+﻿{% extends 'template.html' %}
+
+{% block index_head %}
+    <div class="panel panel-info">
+    <div class="panel-heading">
+        <h1 class="panel-title">GDB DEBUG EFI
+	<small>.base .text .data ......</small>
+        </h1>
+    </div>
+    <table class="table" style = "table-layout:fixed">
+    
+    <!--
+    <thead class="col-sm-15">
+    	<tr>
+        	<th>.base</th>
+        	<th>.text</th>
+        	<th>.data</th>
+    	</tr>
+    </thead>
+    -->
+    <tbody>
+    {%for key,value in mesg_dict.items%}
+
+               {%if key == '.base'%}
+                <thead class="col-sm-15">
+    	            <tr>
+        	            <th>.base:{{value}}</th>
+        	            <th></th>
+        	            <th></th>
+    	            </tr>
+                </thead>
+               {%endif%}
+
+               {%if key == '.text'%}
+                <thead class="col-sm-15">
+    	            <tr>
+        	            <th>.text:{{value}}</th>
+        	            <th></th>
+        	            <th></th>
+    	            </tr>
+                </thead>
+               {%endif%}
+
+               {%if key == '.data'%}
+                <thead class="col-sm-15">
+    	            <tr>
+        	            <th>.data:{{value}}</th>
+        	            <th></th>
+        	            <th></th>
+    	            </tr>
+                </thead>
+               {%endif%}
+               {%if key == '.textsegaddr'%}
+                <thead class="col-sm-15">
+    	            <tr>
+        	            <th>.textsegaddr:{{value}}</th>
+        	            <th></th>
+        	            <th></th>
+    	            </tr>
+                </thead>
+               {%endif%}
+               {%if key == '.datasegaddr'%}
+                <thead class="col-sm-15">
+    	            <tr>
+        	            <th>.datasegaddr:{{value}}</th>
+        	            <th></th>
+        	            <th></th>
+    	            </tr>
+                </thead>
+               {%endif%}
+    {%endfor%}
+    </tbody>
+    <thead class="col-sm-15">
+    	<tr>
+        <th>
+        <h1 class="panel-title">bash$gdb</h1>
+        <h1 class="panel-title">(gdb) add-symbol-file appname.debug [.textsegaddr] -s .data [.datasegaddr]</h1>
+        <h1 class="panel-title">(gdb) break ShellCEntry</h1>
+        <h1 class="panel-title">(gdb) target remote localhost:1234</h1>
+        <h1 class="panel-title">(gdb) c</h1>
+    	</th>
+        </tr>
+    </thead>
+    </table>
+
+    </div>
+<!--
+        <h1 class="panel-title">bash$gdb</h1>
+        <h1 class="panel-title">(gdb) add-symbol-file appname.debug [textaddr] -s .data [dataaddr]</h1>
+        <h1 class="panel-title">(gdb) break ShellCEntry</h1>
+        <h1 class="panel-title">(gdb) target remote localhost:1234</h1>
+        <h1 class="panel-title">(gdb) c</h1>
+-->
+{% endblock %}
+
+{%block index_content %}
+{% endblock %}

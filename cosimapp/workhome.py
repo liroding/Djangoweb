@@ -5,6 +5,8 @@ import builtins
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render,render_to_response
 from django.template.context import RequestContext
+from pygdbmi.gdbcontroller import GdbController
+import re
 #包装csrd 请求，避免django分为其实跨站攻击脚本
 #from django.views.decorators.csrf import csrf_exempt
 #from django.template.context_processors import csrf
@@ -17,7 +19,7 @@ class workhomeitem():
   #  list_display = ('dram','hif')  #页面显示
     def runqemu(request):
         print("Start Run Qemu Platform")
-        os.system('/home/liroding/workspace/project/startqemu.sh bios &')
+        os.system('/home/liroding/workspace/project/startqemu4.0.0.sh bios &')
         return HttpResponse("Run Qemu Starting !!!!")
 
     def buildcode(request):
@@ -94,3 +96,68 @@ class workhomeitem():
       #  os.system(gitpushcmd % ("push","\""+commit+"\"") )
         os.system(gitpushcmd % ("push",commit))
         return HttpResponse("Git Push Finish")
+    def browsedocx(request):
+        return render(request,'test.html')
+    ########## [GdbDebugShell]   ############
+    def getshellappinfo(request):
+        debuglogname = "/home/liroding/workspace/project/debug.log"
+        appname = "Zebu_CNX_HIF.efi"
+        print(">> Start Copy Appname.debug file")
+        os.system('/home/liroding/workspace/app/gdbdebugshellapp.sh ')
+        print(">> Start Reading app.log info about .data .txt segment")
+       
+        #Input GDB CMD
+        gdbmi = GdbController()
+        response = gdbmi.write('file /home/liroding/workspace/app/Zebu_CNX_HIF.efi')
+        response = gdbmi.write('info files')
+    #    print(response)
+        for _list_ in response:
+            #print(_list_)
+            _dict = _list_
+            #print(_dict['payload'])
+            if _dict['payload']:
+                if '.text' in _dict['payload']:
+                    #example:\t0x000000240 - 0x00000000028120 is .text\n
+                    textdata = re.findall(r"t(.+?) -",_dict['payload'])
+                    #print (re.findall(r"t(.+?) -",_dict['payload']))
+                    print('.text='+textdata[0])
+                if '.data' in _dict['payload']:
+                    rdata = re.findall(r"t(.+?) -",_dict['payload'])
+                    #print (re.findall(r"t(.+?) -",_dict['payload']))
+                    print('.data='+rdata[0])
+        #return HttpResponse("Get The Info of ShellApp!!!!")
+        
+        print(">> Get Zebu_CNX_HIF.efi Loading driver Beginaddr")
+        fd = open(debuglogname,"r")
+        keybaseaddr=''
+        for line in fd.readlines():
+                if appname in line:
+                    #example Loading driver at 0x0007e136000 EntryPoint ...... 
+                    data = re.findall(r"t (.+?) E",line)
+                    if len(data):
+                        print(".base="+data[0])
+                        keybaseaddr = data[0]
+        
+        textsegaddr = int(keybaseaddr,16) + int(textdata[0],16)
+        datasegaddr = int(keybaseaddr,16) + int(rdata[0],16)
+        print(".base+.text=0x%x" % textsegaddr) 
+        print(".base+.data=0x%x" % datasegaddr)
+
+        strtextaddr=hex(textsegaddr)
+        strdataaddr=hex(datasegaddr)
+        _dict={'.text':textdata[0],'.base':keybaseaddr,'.data':rdata[0],'.textsegaddr':strtextaddr,'.datasegaddr':strdataaddr}
+        
+        '''
+        strtextaddr=hex(textsegaddr)
+        strdataaddr=hex(datasegaddr)
+
+        response = gdbmi.write('add-sysmbol-file /home/liroding/workspace/app/Zebu_CNX_HIF.debeg '+strtextaddr+' -s .data '+ strdataaddr)
+        print(response)
+        response = gdbmi.write('break ShellCEntryLib')
+        print(response)
+        response = gdbmi.write('target remote localhost:1234')
+        print(response)
+        response = gdbmi.write('c')
+        #return HttpResponse("Get The Info of ShellApp!!!!")
+        '''
+        return render(request,'gdbdebugshow.html',{'mesg_dict':_dict})

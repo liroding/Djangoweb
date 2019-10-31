@@ -21,5 +21,8 @@ urlpatterns =[
       path('showloginfo',workhomeitem.showloginfo),
       path('showloginfobuild',workhomeitem.showloginfo_build),
       path('githandle',workhomeitem.githandle),
+      path('browsedocx',workhomeitem.browsedocx),
+      ########## [GdbDebugShellApp] #############
+      path('getshellappinfo',workhomeitem.getshellappinfo),
 ]
  

@@ -8,6 +8,7 @@
         </h1>
     </div>
     <table class="table" style = "table-layout:fixed">
+<!--
     <thead class="col-sm-15">
     	<tr>
         	<th>index1</th>
@@ -17,13 +18,31 @@
         	<th>index5</th>
     	</tr>
     </thead>
+-->
     <tbody>
     {%for key,value in mesg_dict.items%}
-    	<tr>
-    	{%for i,j in value.items%}    
-        	<td style="word-wrap:break-word">{{j}}</td>
-    	{%endfor%}
-    	</tr>
+           <thead class="col-sm-15">
+    	         <tr>
+    	            {%for i,j in value.items%}    
+                        {%if i == 'index1'%}
+        	                <th>index1:{{j}}</th>
+                        {%endif%}
+                        {%if i == 'index2'%}
+        	                <th>index2:{{j}}</th>
+                        {%endif%}
+                        {%if i == 'index3'%}
+        	                <th>index3:{{j}}</th>
+                        {%endif%}
+                        {%if i == 'index4'%}
+        	                <th>index4:{{j}}</th>
+                        {%endif%}
+                        {%if i == 'index5'%}
+        	                <th>index5:{{j}}</th>
+                        {%endif%}
+
+    	            {%endfor%}
+    	          </tr>
+           </thead>
     {%endfor%}
     </tbody>
     </table>
