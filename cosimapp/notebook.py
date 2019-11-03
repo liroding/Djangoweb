@@ -58,3 +58,35 @@ class notebookitem():
                     'articles':notebooks
                 }
                 )
+    def modifynotebook(request):
+                      
+        noteid = request.POST['articleid']
+        print(noteid)
+        articles = notebookdb.objects.all()
+        article = None
+        for a in articles:
+            if a.article_id == int(noteid):
+                article = a
+                break
+        return render(request,'modifyarticles.html',
+                {
+                    'article':article
+                })
+    def modifynotebook_query(request):
+                      
+        articleid = request.POST['articleid']
+        newcontent = request.POST['newcontent']
+        print(articleid)
+        print(newcontent)
+        articles = notebookdb.objects.all()
+        article = None
+        for a in articles:
+            if a.article_id == int(articleid):
+                a.content = newcontent
+                a.save()
+                break
+
+        return render(request,'detail.html',
+                {
+                    'article':a
+                })

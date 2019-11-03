@@ -7,6 +7,8 @@ urlpatterns =[
       path('mainpage',notebookitem.get_notebook_page),
       path('notebookadd',notebookitem.add_notebook_page),
       path('notebookaddquery',notebookitem.add_query_page),
+      path('modifynotebook',notebookitem.modifynotebook),
+      path('modifynotebookquery',notebookitem.modifynotebook_query),
      
       path('runqemu',workhomeitem.runqemu),
       path('buildcode',workhomeitem.buildcode),

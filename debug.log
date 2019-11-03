@@ -29,7 +29,7 @@ FW CFG Revision: 0x3
 QemuFwCfg interface (DMA) is supported.
 Platform PEIM Loaded
 CMOS:
-00: 29 00 48 00 05 00 05 31 10 19 26 02 00 80 00 00
+00: 57 00 18 00 07 00 06 01 11 19 26 02 00 80 00 00
 10: 00 00 F0 00 06 80 02 FF FF 2F 00 00 04 10 FF FF
 20: C8 00 04 3F 00 00 00 00 00 00 00 00 00 00 00 00
 30: FF FF 20 00 00 7F 00 20 30 00 00 00 00 12 00 00
@@ -1761,3 +1761,4 @@ FSOpen: Open '\hifcfg.ini' Success
 FSOpen: Open '\hifcfg.ini' Success
 FSOpen: Open '\hifcfg.ini' Success
 FSOpen: Open '\hifcfg.ini' Success
+FSOpen: Open '\' Success

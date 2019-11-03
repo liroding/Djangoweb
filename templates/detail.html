@@ -23,7 +23,9 @@
     </h1>
 
     <p><pre>{{article.content}}</pre></p>
-
+    <form action="modifynotebook" method="post">
+    <button type="submit" name="articleid" value={{article.article_id}}> 修改</button>
+    </form>
 </div>
 {% block mainbody %}
 {% endblock %}
