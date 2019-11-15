@@ -2,6 +2,7 @@ from django.urls import path
 from cosimapp.workhome import workhomeitem
 from cosimapp.notebook import notebookitem
 from cosimapp.workhome import workhomeitem
+from . import upload
 urlpatterns =[
       path('detail',notebookitem.get_detail_page),
       path('mainpage',notebookitem.get_notebook_page),
@@ -18,7 +19,7 @@ urlpatterns =[
       path('inputmessage',workhomeitem.inputmessage),
       path('addmesgquery',workhomeitem.addmesgquery),
       path('showmessage',workhomeitem.showmessage),
-      path('upload',workhomeitem.upload),
+#      path('upload',workhomeitem.upload),
       path('showjsondata',workhomeitem.showjsondata),
       path('showloginfo',workhomeitem.showloginfo),
       path('showloginfobuild',workhomeitem.showloginfo_build),
@@ -26,5 +27,8 @@ urlpatterns =[
       path('browsedocx',workhomeitem.browsedocx),
       ########## [GdbDebugShellApp] #############
       path('getshellappinfo',workhomeitem.getshellappinfo),
+       ################## [upload file] ####################
+      path('upload/',upload.upload),
+      path('showuploadfiles/',upload.showuploadfiles),
 ]
  

@@ -1,0 +1,9 @@
+1.测试routing table case
+  1)设置node0 的ALL_link_ready信号为0时，测试nod0 到node2的mmiocfg
+    都可以正常打下去，但是测试node0 到node2的memory cycle，出现dut 
+    fail exit现象，原因可能是由于checker机制导致的，待确认！
+    如果出现这种情况，应该处理为打到local 端吧，且为c2M吧？？？？？
+
+2.设置node0 的all_link_ready=1,node1和node2的ALL_LINK_READY=0,对
+ node2进行正常的memory访问没有问题，证明只要本all_link_ready=1,就
+ 认为routing是正常的，不需要care路由经过的点的all_link_ready状态

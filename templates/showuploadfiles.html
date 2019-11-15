@@ -1,0 +1,19 @@
+﻿{% extends 'template.html' %}
+
+{% block index_head %}
+    <div class="panel panel-info">
+    <div class="panel-heading">
+        <h1 class="panel-title">Message
+	<small> Show</small>
+        </h1>
+    </div>
+    {%for key,value in mesg_dict.items%}
+        <li> <a href={{value}}>{{value}}</a></li>
+    {%endfor%}
+
+    </div>
+{% endblock %}
+
+{%block index_content %}
+
+{% endblock %}
