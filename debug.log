@@ -29,7 +29,7 @@ FW CFG Revision: 0x3
 QemuFwCfg interface (DMA) is supported.
 Platform PEIM Loaded
 CMOS:
-00: 42 00 15 00 03 00 03 12 11 19 26 02 00 80 00 00
+00: 24 00 32 00 02 00 05 05 12 19 26 02 00 80 00 00
 10: 00 00 F0 00 06 80 02 FF FF 2F 00 00 04 10 FF FF
 20: C8 00 04 3F 00 00 00 00 00 00 00 00 00 00 00 00
 30: FF FF 20 00 00 7F 00 20 30 00 00 00 00 12 00 00
@@ -1472,8 +1472,6 @@ SataControllerStart error return status = Already started
 FatOpenDevice: read of part_lba failed No Media
  BlockSize : 512 
  LastBlock : FBFFF 
-[Bds]BmHotkeyCallback: 0000:000D
-[Bds]Continue key pressed!
  BlockSize : 512 
  LastBlock : FBFFF 
  BlockSize : 2048 
@@ -1519,65 +1517,21 @@ ProtectUefiImageCommon - 0x7F207740
 InstallProtocolInterface: 387477C2-69C7-11D2-8E39-00A0C969723B 7F201BA0
 InstallProtocolInterface: 752F3136-4E16-4FDC-A22A-E5F46812F4CA 7F200F98
 InstallProtocolInterface: 6302D008-7F9B-4F30-87AC-60C9FEF5DA4E 7E45C2A0
+FSOpen: Open '\startup.nsh' Success
+FSOpen: Open '\startup.nsh' Success
+FSOpen: Open '\startup.nsh' Success
 FSOpen: Open '\' Success
-FSOpen: Open '.' Success
-FSOpen: Open '\cfg_tool' Success
-FSOpen: Open '\raida-shell.efi' Success
-FSOpen: Open '\Zebu_CNX_HIF.debug' Success
-FSOpen: Open '\NvVars' Success
-FSOpen: Open '\OVMF_lirodebug.fd' Success
-FSOpen: Open '\zebuapp.efi' Success
-FSOpen: Open '\Zebu_CNX_HIF.efi' Success
-FSOpen: Open '\edk2makelog_1.log' Success
-FSOpen: Open '\Conf.txt' Success
-FSOpen: Open '\OVMF_2.fd' Success
-FSOpen: Open '\axi.sh' Success
-FSOpen: Open '\EFI' Success
-FSOpen: Open '\zebu_dram_os' Success
-FSOpen: Open '\PythonUI' Success
-FSOpen: Open '\pythonUIHandletext.log' Success
-FSOpen: Open '\axiapp.efi' Success
-FSOpen: Open '\pip.py' Success
-FSOpen: Open '\zebubuildapp.sh' Success
-FSOpen: Open '\cfg_tool_os' Success
-FSOpen: Open '\Python.efi' Success
-FSOpen: Open '\gdbdebugshellapp.sh' Success
-FSOpen: Open '\OVMF_enoch.fd' Success
-FSOpen: Open '\edk2makelog_2.log' Success
-FSOpen: Open '\hifcfg.ini' Success
-FSOpen: Open '\sh.nsh' Success
-FSOpen: Open '\buildapp.sh' Success
-FSOpen: Open '\OVMF.fd' Success
-FSOpen: Open '\conf.sh' Success
-FSOpen: Open '\app.log' Success
-FSOpen: Open '\UefiShellPMON.efi' Success
-FSOpen: Open '\OVMF_V1.fd' Success
-FSOpen: Open '\liroapp.efi' Success
-FSOpen: Open '\Tool.h' Success
-FSOpen: Open '\edk2makelog.log' Success
-FSOpen: Open '\OVMF_new.fd' Success
-FSOpen: Open '\OVMF_1.fd' Success
-FSOpen: Open '\bzImage_1' Success
-FSOpen: Open '\config.ini' Success
-FSOpen: Open '\test_case1.txt' Success
-FSOpen: Open '\zebu_drma_os' Success
-FSOpen: Open '\.qemu.log.swp' Success
-FSOpen: Open '\cfg_tool.efi' Success
-FSOpen: Open '\kernel.log' Success
-FSOpen: Open '\Python2710.efi' Success
-FSOpen: Open '\' Success
-FSOpen: Open '.' Success
 FSOpen: Open '\Zebu_CNX_HIF.efi' Success
 FSOpen: Open '\Zebu_CNX_HIF.efi' Success
 FSOpen: Open '\Zebu_CNX_HIF.efi' Success
 FSOpen: Open '\Zebu_CNX_HIF.efi' Success
 [Security] 3rd party image[0] can be loaded after EndOfDxe: PciRoot(0x0)/Pci(0x1B,0x2)/Sata(0x0,0xFFFF,0x0)/HD(1,MBR,0xBE1AFDFA,0x3F,0xFBFC1)/\Zebu_CNX_HIF.efi.
-InstallProtocolInterface: 5B1B31A1-9562-11D2-8E3F-00A0C969723B 7EDB63C0
-Loading driver at 0x0007E343000 EntryPoint=0x0007E3476C1 Zebu_CNX_HIF.efi
-InstallProtocolInterface: BC62157E-3E33-4FEC-9920-2D3B36D750DF 7EDB6B98
-ProtectUefiImageCommon - 0x7EDB63C0
-  - 0x000000007E343000 - 0x000000000003CF60
-InstallProtocolInterface: 752F3136-4E16-4FDC-A22A-E5F46812F4CA 7FE30688
+InstallProtocolInterface: 5B1B31A1-9562-11D2-8E3F-00A0C969723B 7EDB04C0
+Loading driver at 0x0007E341000 EntryPoint=0x0007E3456C1 Zebu_CNX_HIF.efi
+InstallProtocolInterface: BC62157E-3E33-4FEC-9920-2D3B36D750DF 7EDB1318
+ProtectUefiImageCommon - 0x7EDB04C0
+  - 0x000000007E341000 - 0x000000000003E5A0
+InstallProtocolInterface: 752F3136-4E16-4FDC-A22A-E5F46812F4CA 7FE30578
 FSOpen: Open '\hifcfg.ini' Success
 FSOpen: Open '\hifcfg.ini' Success
 FSOpen: Open '\hifcfg.ini' Success
@@ -1707,3 +1661,4 @@ FSOpen: Open '\hifcfg.ini' Success
 FSOpen: Open '\hifcfg.ini' Success
 FSOpen: Open '\hifcfg.ini' Success
 FSOpen: Open '\hifcfg.ini' Success
+FSOpen: Open '\' Success

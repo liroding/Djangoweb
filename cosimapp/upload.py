@@ -11,7 +11,7 @@ def upload(request):
  
 def handle_upload_file(file,filename):
     pwd = os.getcwd()
-    path = pwd + '/uploads/'
+    path = pwd + '/static/uploads/'
     print(path)
     if not os.path.exists(path):
         os.makedirs(path)
@@ -20,16 +20,17 @@ def handle_upload_file(file,filename):
                 destination.write(chunk)
 def showuploadfiles(request):
     pwd = os.getcwd()
-    path = pwd + '/uploads/'
+    path = pwd + '/static/uploads/'
+    tmpdirpath = '/static/uploads/'
     _dict = {}
     index = 0
     for root,dirs,files in os.walk(path,topdown=False):
         n = len(files)
         for name in files:
                 index = index+1
-                _dict[index]= name
- #               _dict[index]= os.path.join(root,name)
-                print(os.path.join(root,name))
+ #               _dict[index]= name
+                _dict[index]= os.path.join(tmpdirpath,name)
+ #               print(os.path.join(root,name))
         index =0
         print(_dict)
         #return render(request,'upload.html',{'mesg_dict':_dict})
