@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import login,notebookdb,recordmesgdb
+from . models import login,notebookdb,recordmesgdb,recordquestiondb
 import builtins
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render,render_to_response
@@ -91,3 +91,4 @@ class loginitem():
 admin.site.register(login)
 admin.site.register(notebookdb)
 admin.site.register(recordmesgdb)
+admin.site.register(recordquestiondb)

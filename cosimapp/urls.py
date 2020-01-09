@@ -1,7 +1,6 @@
 from django.urls import path
 from cosimapp.workhome import workhomeitem
 from cosimapp.notebook import notebookitem
-from cosimapp.workhome import workhomeitem
 from . import upload
 urlpatterns =[
       path('detail',notebookitem.get_detail_page),
@@ -30,5 +29,9 @@ urlpatterns =[
        ################## [upload file] ####################
       path('upload/',upload.upload),
       path('showuploadfiles/',upload.showuploadfiles),
+      ################## [record question] ####################
+      path('editrecordq',workhomeitem.EditRecordQ),
+      path('showrecordq',workhomeitem.ShowRecordQ),
+      path('recordquestionquery',workhomeitem.recordquestionquery),
 ]
  

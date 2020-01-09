@@ -1,6 +1,6 @@
 from django.contrib import admin
 import os
-from . models import login,recordmesgdb
+from . models import login,recordmesgdb,recordquestiondb
 import builtins
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render,render_to_response
@@ -98,6 +98,58 @@ class workhomeitem():
         return HttpResponse("Git Push Finish")
     def browsedocx(request):
         return render(request,'test.html')
+    
+    ############## Record Question###################
+    def EditRecordQ(request):
+        print("Start EditRecord Question item")    
+        return render(request,'inputrecordquestion.html')
+    def recordquestionquery(request):
+        Title = request.POST['title']
+        Content = request.POST['content']
+        tmp = recordquestiondb()
+        if Title:
+            tmp.qtitle = Title
+            tmp.qcontent = Content
+            tmp.save()
+        print(Title + Content)        
+        all_recordmesg = recordquestiondb.objects.all()
+        i = 0
+        _dict = {} 
+        while i<len(all_recordmesg):
+            _dict[i] = {'title':all_recordmesg[i].qtitle,'content':all_recordmesg[i].qcontent}
+            print(_dict[i])
+            i=i+1
+        return render(request,'recordquestion.html',{'mesg_dict':_dict})
+    def ShowRecordQ(request):
+        all_recordmesg = recordquestiondb.objects.all()
+        i = 0
+        _dict = {} 
+        while i<len(all_recordmesg):
+            _dict[i] = {'title':all_recordmesg[i].qtitle,'content':all_recordmesg[i].qcontent}
+            print(_dict[i])
+            i=i+1
+        return render(request,'recordquestion.html',{'mesg_dict':_dict})
+    '''
+    def AddRecordQ(request):
+        index1 = request.POST['index1']
+        index2 = request.POST['index2']
+        tmp = recordmesgdb()
+        print('!!!'+index1)
+        if index1:
+            tmp.index1 = index1
+            tmp.index2 = index2
+            tmp.save()
+        print(index1+index2)        
+        all_recordmesg = recordmesgdb.objects.all()
+        i = 0
+        _dict = {} 
+        while i<len(all_recordmesg):
+            _dict[i] = {'index1':all_recordmesg[i].index1,'index2':all_recordmesg[i].index2
+                       }
+            print(_dict[i])
+            i=i+1
+        return render(request,'showmessage.html',{'mesg_dict':_dict})
+    '''
     ########## [GdbDebugShell]   ############
     def getshellappinfo(request):
         debuglogname = "/home/liroding/workspace/project/debug.log"

@@ -8,7 +8,7 @@ class login(models.Model):
 
     def __str__(self):
         return 'name:'+self.user+','+self.password
-class notebookdb(models.Model):
+class notebookdb(models.Model):   # record new knowledge
     article_id = models.AutoField(primary_key = True)
     title  = models.TextField()
     author = models.TextField()
@@ -27,3 +27,8 @@ class recordmesgdb(models.Model):
     def __str__(self):
         return 'index1:'+self.index1
 
+class recordquestiondb(models.Model):  #record some question 
+    qtitle  = models.TextField()
+    qcontent  = models.TextField()
+    def __str__(self):
+        return 'qtitle:'+ self.qtitle+',' + self.qcontent

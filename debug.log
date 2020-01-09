@@ -29,7 +29,7 @@ FW CFG Revision: 0x3
 QemuFwCfg interface (DMA) is supported.
 Platform PEIM Loaded
 CMOS:
-00: 24 00 32 00 02 00 05 05 12 19 26 02 00 80 00 00
+00: 25 00 44 00 07 00 05 09 01 20 26 02 00 80 00 00
 10: 00 00 F0 00 06 80 02 FF FF 2F 00 00 04 10 FF FF
 20: C8 00 04 3F 00 00 00 00 00 00 00 00 00 00 00 00
 30: FF FF 20 00 00 7F 00 20 30 00 00 00 00 12 00 00
@@ -1429,7 +1429,7 @@ InstallProtocolInterface: 964E5B22-6459-11D2-8E39-00A0C969723B 7F216030
 Installed Fat filesystem on 7F21FF18
 FsAccess.c: LoadNvVarsFromFs
 FSOpen: Open 'NvVars' Success
-FsAccess.c: Read 1565 bytes from NV Variables file
+FsAccess.c: Read 1385 bytes from NV Variables file
 Variable Driver Auto Update PlatformLang, PlatformLang:en, Lang:eng Status: Success
 Variable Driver Auto Update Lang, Lang:eng, PlatformLang:en Status: Success
 Variable Check ReadOnly variable fail Write Protected - 04B37FE8-F6AE-480B-BDD5-37D98C5E89AA:VarErrorFlag
@@ -1521,25 +1521,18 @@ FSOpen: Open '\startup.nsh' Success
 FSOpen: Open '\startup.nsh' Success
 FSOpen: Open '\startup.nsh' Success
 FSOpen: Open '\' Success
+FSOpen: Open '.' Success
 FSOpen: Open '\Zebu_CNX_HIF.efi' Success
 FSOpen: Open '\Zebu_CNX_HIF.efi' Success
 FSOpen: Open '\Zebu_CNX_HIF.efi' Success
 FSOpen: Open '\Zebu_CNX_HIF.efi' Success
 [Security] 3rd party image[0] can be loaded after EndOfDxe: PciRoot(0x0)/Pci(0x1B,0x2)/Sata(0x0,0xFFFF,0x0)/HD(1,MBR,0xBE1AFDFA,0x3F,0xFBFC1)/\Zebu_CNX_HIF.efi.
-InstallProtocolInterface: 5B1B31A1-9562-11D2-8E3F-00A0C969723B 7EDB04C0
-Loading driver at 0x0007E341000 EntryPoint=0x0007E3456C1 Zebu_CNX_HIF.efi
-InstallProtocolInterface: BC62157E-3E33-4FEC-9920-2D3B36D750DF 7EDB1318
-ProtectUefiImageCommon - 0x7EDB04C0
-  - 0x000000007E341000 - 0x000000000003E5A0
-InstallProtocolInterface: 752F3136-4E16-4FDC-A22A-E5F46812F4CA 7FE30578
-FSOpen: Open '\hifcfg.ini' Success
-FSOpen: Open '\hifcfg.ini' Success
-FSOpen: Open '\hifcfg.ini' Success
-FSOpen: Open '\hifcfg.ini' Success
-FSOpen: Open '\hifcfg.ini' Success
-FSOpen: Open '\hifcfg.ini' Success
-FSOpen: Open '\hifcfg.ini' Success
-FSOpen: Open '\hifcfg.ini' Success
+InstallProtocolInterface: 5B1B31A1-9562-11D2-8E3F-00A0C969723B 7EDB7040
+Loading driver at 0x0007E340000 EntryPoint=0x0007E3446C1 Zebu_CNX_HIF.efi
+InstallProtocolInterface: BC62157E-3E33-4FEC-9920-2D3B36D750DF 7EDB7E98
+ProtectUefiImageCommon - 0x7EDB7040
+  - 0x000000007E340000 - 0x000000000003FE60
+InstallProtocolInterface: 752F3136-4E16-4FDC-A22A-E5F46812F4CA 7FE30688
 FSOpen: Open '\hifcfg.ini' Success
 FSOpen: Open '\hifcfg.ini' Success
 FSOpen: Open '\hifcfg.ini' Success
